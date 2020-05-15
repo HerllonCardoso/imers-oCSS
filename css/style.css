@@ -1,12 +1,62 @@
+/*soft reset css obrigatorio*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
 body{
     background-image: url('https://thewallpaper.co//wp-content/uploads/2016/10preview/minimalist-wallpaper.jpg');
     background-size: auto 180vh;
-    font-family: Arial;
-    height: 100vh;
+    font-family: 'Source Code Pro', monospace;
+    height: 140vh;
+    font-size: 12px;
   }
-  
+
+  /* se a tela tiver no minimo 400px*/
+@media(min-width: 400px){
+  body{
+    font-size:14px;
+  }
+}
+
+@media(min-width: 600px){
+  body{
+    font-size:18px;
+  }
+}
+ 
+@media(min-width: 600px){
+  body{
+    font-size:20px;
+  }
+}
+header{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
   .menu{
    background-color: white;
+   position: fixed;
+   width: 100vw;
+   top: 0;
+   z-index: 1;
+  }
+
+  .menu a{
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 1s, color 1s;
+    
+  }
+
+  .menu a:hover{
+    background-color: teal;
+    color: whitesmoke;
   }
   
   .menu ul{
@@ -24,17 +74,100 @@ body{
     color: teal;
   }
   
-  a:hover{
-    text-decoration: underline;
+.titulo{
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+ 
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo{
+
+  100%{
+
+    transform: scale(1) translateY(0);
+    opacity: 1;
   }
-  
-  
+
+}
+
   .site-subtitle,
   .site-title{
     text-align: center;
     color: blacksmoke;
   }
+
+
+  .site-title{
+    font-size: 4em;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
   
   .site-subtitle{
     font-style: italic;
+    font-family: 'Press Start 2P', cursive;
   }
+
+  .contato,
+  .portfolio{
+    padding: 2em;
+    min-height: 100vh;
+  }
+
+
+  .contato,
+  .portfolio h2{
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 1.5em;
+    font-size: 1.5;
+  }
+
+  .portfolio .grid{
+    display: grid;
+    gap: 2em;
+  
+  }
+    @media(min-width: 560px){
+      .portfolio .grid{
+      grid-template-columns: repeat(2, 240px);
+    }
+  }
+
+    @media(min-width: 880px){
+      .portfolio .grid{
+        grid-template-columns: repeat(3, 240px);
+        align-content: center;
+        justify-content: center;
+        height: calc(100vh - 8em - 11.5em);
+      }
+    }
+
+    
+  .portfolio figure{
+    text-align: center;
+  }
+
+  .img-portfolio{
+    height: 240px;
+    width: 240px;
+    object-fit: left bottom;
+    border-radius: 50%;
+    transition: transform 500ms;
+  }
+
+  .img-portfolio:hover{
+    transform: scale(1.2) rotate(-3deg);
+  }
+
+  .contato a{
+    color: black;
+    font-size: 3em;
+    transition: 1s;
+  }
+
+.contato a:active,
+.contato a:hover{
+  text-shadow: 0px 0px 30px blueviolet;
+
+}
+
